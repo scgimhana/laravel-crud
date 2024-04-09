@@ -1,20 +1,25 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Task')
+@section('title', 'Edit Student')
 @section('content')
-<h2>Edit Task</h2>
+<div class="py-5">
+    <h2>Edit Task</h2>
 
-<form method="POST" action="{{ route('tasks.update', $task->id) }}">
-    @csrf
-    @method('PUT')
+    <form class="mt-4" method="POST" action="{{ route('tasks.update', $task->id) }}">
+        @csrf
+        @method('PUT')
 
-    <label for="title">Title:</label>
-    <input type="text" name="title" value="{{ old('title', $task->title) }}" required>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" name="title" value="{{ old('title', $task->title) }}" required>
+        </div>
 
-    <label for="description">Description:</label>
-    <textarea name="description" required>{{ old('description', $task->description) }}</textarea>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea name="description" class="form-control" required>{{ old('description', $task->description) }}</textarea>
+        </div>
 
-
-    <button type="submit">Update Task</button>
-</form>
+        <button class="btn btn-outline-primary" type="submit">Update Student</button>
+    </form>
+</div>
 @endsection
